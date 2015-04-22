@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>net.sf.jsi</groupId>
-  <artifactId>jsi</artifactId>
-  <version>1.1.0-SNAPSHOT</version>
+  <groupId>com.ravn.net.sf.jsi</groupId>
+  <artifactId>jsi-1.1.0</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>jsi</name>
@@ -27,9 +27,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/aled/jsi.git</connection>
-    <developerConnection>scm:git:https://github.com/aled/jsi.git</developerConnection>
-    <url>https://github.com/aled/jsi.git</url>
+    <connection>scm:git:https://github.com/RavnSystems/jsi.git</connection>
+    <developerConnection>scm:git:https://github.com/RavnSystems/jsi.git</developerConnection>
+    <url>https://github.com/RavnSystems/jsi.git</url>
   </scm>
 
   <properties>
@@ -206,20 +206,20 @@
         <version>2.7</version>
       </plugin>
 
-      <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.5</version>
-          <executions>
-              <execution>
-                  <id>sign-artifacts</id>
-                  <phase>verify</phase>
-                  <goals>
-                      <goal>sign</goal>
-                  </goals>
-              </execution>
-          </executions>
-      </plugin>
+      <!--<plugin>-->
+          <!--<groupId>org.apache.maven.plugins</groupId>-->
+          <!--<artifactId>maven-gpg-plugin</artifactId>-->
+          <!--<version>1.5</version>-->
+          <!--<executions>-->
+              <!--<execution>-->
+                  <!--<id>sign-artifacts</id>-->
+                  <!--<phase>verify</phase>-->
+                  <!--<goals>-->
+                      <!--<goal>sign</goal>-->
+                  <!--</goals>-->
+              <!--</execution>-->
+          <!--</executions>-->
+      <!--</plugin>-->
     </plugins>
 
     <extensions>
@@ -272,43 +272,18 @@
   </dependencies>
 
   <distributionManagement>
-
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-
     <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-
-      <!-- this is where the release zips used to go before version 1.0 -->
-      <!--
-      <url>scp://shell.sourceforge.net/home/frs/project/j/js/jsi/jsi/${version}</url>
-      -->
-
-      <!-- Use this for sourceforge -->
-      <!--
-      <id>jsi.sourceforge.net</id>
-      <url>scp://shell.sourceforge.net/home/frs/project/j/js/jsi/m2_repo</url>
-      -->
-
-      <!-- use this for testing... -->
-      <!--
-      <id>localhost</id>
-      <url>scp://localhost/temp/jsi-deploy-test/j/js/jsi/m2_repo</url>
-      -->
-
+      <id>mavn.ravn.co.uk</id>
+      <name>mavn.ravn.co.uk-releases</name>
+      <url>http://mavn.ravn.co.uk/artifactory/libs-releases-local</url>
     </repository>
-
-    <!-- It is necessary to create a shell before uploading, like this: -->
-    <!-- ssh -t aled,jsi@shell.sourceforge.net create -->
-    <site>
-      <id>jsi.sourceforge.net</id>
-      <url>scp://shell.sourceforge.net/home/project-web/jsi/htdocs</url>
-    </site>
-
+    <snapshotRepository>
+      <id>mavn.ravn.co.uk</id>
+      <name>mavn.ravn.co.uk-snapshots</name>
+      <url>http://mavn.ravn.co.uk/artifactory/libs-snapshots-local</url>
+    </snapshotRepository>
   </distributionManagement>
+
 
   <reporting>
     <plugins>
